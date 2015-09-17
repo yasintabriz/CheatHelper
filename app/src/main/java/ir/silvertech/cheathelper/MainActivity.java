@@ -11,6 +11,9 @@ import sdk.adenda.lockscreen.AdendaAgent;
 import sdk.adenda.widget.AdendaButton;
 import sdk.adenda.widget.AdendaButtonCallback;
 
+//import com.codinguser.android.contactpicker.ContactsPickerActivity;
+//import com.codinguser.android.contactpicker.OnContactSelectedListener;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

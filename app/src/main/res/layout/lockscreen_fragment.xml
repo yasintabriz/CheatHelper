@@ -45,6 +45,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
@@ -53,8 +54,11 @@
                 android:id="@+id/button1"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No1"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -63,8 +67,11 @@
                 android:id="@+id/button2"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No2"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -75,6 +82,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No3"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -85,6 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
@@ -93,8 +103,11 @@
                 android:id="@+id/button4"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No4"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -103,8 +116,11 @@
                 android:id="@+id/button5"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No5"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -115,6 +131,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No6"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -124,7 +142,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
+
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
@@ -132,8 +152,11 @@
                 android:id="@+id/button7"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No7"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -142,8 +165,11 @@
                 android:id="@+id/button8"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No8"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -154,6 +180,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No9"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -171,8 +199,11 @@
                 android:id="@+id/buttonasterisk"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/Asterisk"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -181,8 +212,11 @@
                 android:id="@+id/button0"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/No0"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -193,6 +227,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/roundedbutton"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:text="@string/Ok"
                 android:textSize="25sp"
                 android:typeface="serif" />
@@ -225,14 +261,14 @@
             android:id="@+id/adenda_unlock_widget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
 
             android:clickable="false"
             android:max="70"
-            android:progressDrawable="@drawable/ic_chevron_right_black_36dp"
+            android:progressDrawable="@drawable/seekbar"
             android:thumb="@drawable/slider"
-            android:thumbOffset="5dp" />
+            android:thumbOffset="0dp" />
     </LinearLayout>
 
 
