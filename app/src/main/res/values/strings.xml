@@ -19,6 +19,7 @@
     <string name="pin_entry">Enter Pin</string>
     <string name="NumberEntry">Please enter the recipient number:</string>
     <string name="Contacts">Contacts...</string>
-    <string name="EnableApp">Begin cheating!</string>
+    <string name="EnableApp">Begin cheating!(Enable)</string>
     <string name="RecipientNumber">Recipient number</string>
+    <string name="DisableApp">Mischief managed!(Disable)</string>
 </resources>

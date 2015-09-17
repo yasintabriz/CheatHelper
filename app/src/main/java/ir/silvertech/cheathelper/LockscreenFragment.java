@@ -1,9 +1,9 @@
 package ir.silvertech.cheathelper;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
 import android.util.Pair;
@@ -35,7 +35,8 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     Button b0;
     Button basterisk;
     Button bok;
-
+    SharedPreferences sp;
+    String phoneNumber;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +48,11 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
 
     @Override
     public boolean expandOnRotation() {
@@ -183,21 +189,31 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
         bok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//sendSMS("09148615141", number.getText().toString());
-                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-                Toast.makeText(getActivity(), sp.getString("Number", null), Toast.LENGTH_SHORT).show();
+                //    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_PRIVATE);
+                phoneNumber = sp.getString("Number", "");
+                if (!phoneNumber.isEmpty()) {
+                    sendSMS(sp.getString("Number", ""), number.getText().toString());
+                    number.setText("");
+                    Toast.makeText(getActivity(), "Done", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
+
+                }
+                sp = null;
+                phoneNumber = null;
             }
         });
 
 
     }
 
-    private void sendSMS(String phoneNumber, String message) {
+    private void sendSMS(String InputNumber, String message) {
         sms = SmsManager.getDefault();
-        sms.sendTextMessage(phoneNumber, null, message, null, null);
+        sms.sendTextMessage(InputNumber, null, message, null, null);
         sms = null;
-        number.setText(null);
+        number.setText("");
 
     }
 
