@@ -1,20 +1,25 @@
 package ir.silvertech.cheathelper;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.codinguser.android.contactpicker.ContactsPickerActivity;
 
 import sdk.adenda.lockscreen.AdendaAgent;
 import sdk.adenda.widget.AdendaButton;
 import sdk.adenda.widget.AdendaButtonCallback;
 
-//import com.codinguser.android.contactpicker.ContactsPickerActivity;
-//import com.codinguser.android.contactpicker.OnContactSelectedListener;
-
 public class MainActivity extends AppCompatActivity {
+    private static final int GET_PHONE_NUMBER = 3007;
+    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +86,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                getContact();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EditText et = (EditText) findViewById(R.id.editText);
+        if (!sp.getString("Number", "").isEmpty()) {
+            et.setText(sp.getString("Number", ""));
+        }
     }
 
     @Override
@@ -108,5 +122,30 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void getContact() {
+        startActivityForResult(new Intent(this, ContactsPickerActivity.class), GET_PHONE_NUMBER);
+    }
+
+    // Listen for results.
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // See which child activity is calling us back.
+        switch (requestCode) {
+            case GET_PHONE_NUMBER:
+                // This is the standard resultCode that is sent back if the
+                // activity crashed or didn't doesn't supply an explicit result.
+                if (resultCode == RESULT_CANCELED) {
+
+                } else {
+                    String phoneNumber = (String) data.getExtras().get(ContactsPickerActivity.KEY_PHONE_NUMBER);
+                    //Do what you wish to do with phoneNumber e.g.
+
+                    SharedPreferences.Editor spe = sp.edit();
+                    spe.putString("Number", phoneNumber);
+                }
+            default:
+                break;
+        }
+    }
 
 }

@@ -17,4 +17,8 @@
     <string name="Ok">Ok</string>
     <string name="SlideToUnlock">Slide to unlock</string>
     <string name="pin_entry">Enter Pin</string>
+    <string name="NumberEntry">Please enter the recipient number:</string>
+    <string name="Contacts">Contacts...</string>
+    <string name="EnableApp">Begin cheating!</string>
+    <string name="RecipientNumber">Recipient number</string>
 </resources>
