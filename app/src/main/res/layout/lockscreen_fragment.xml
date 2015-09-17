@@ -268,7 +268,7 @@
             android:max="70"
             android:progressDrawable="@drawable/seekbar"
             android:thumb="@drawable/slider"
-            android:thumbOffset="0dp" />
+            android:thumbOffset="2dp" />
     </LinearLayout>
 
 

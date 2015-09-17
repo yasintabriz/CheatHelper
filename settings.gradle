@@ -1,1 +1,1 @@
-include ':app', ':AdendaSDKRelease'
+include ':app', ':AdendaSDKRelease', ':contact_picker'

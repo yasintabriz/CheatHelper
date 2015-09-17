@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/AdendaSDKRelease/AdendaSDKRelease.iml" filepath="$PROJECT_DIR$/AdendaSDKRelease/AdendaSDKRelease.iml" />
       <module fileurl="file://$PROJECT_DIR$/CheatHelper.iml" filepath="$PROJECT_DIR$/CheatHelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/contact_picker/contact_picker.iml" filepath="$PROJECT_DIR$/contact_picker/contact_picker.iml" />
     </modules>
   </component>
 </project>

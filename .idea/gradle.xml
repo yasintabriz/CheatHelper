@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AdendaSDKRelease" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/contact_picker" />
           </set>
         </option>
       </GradleProjectSettings>

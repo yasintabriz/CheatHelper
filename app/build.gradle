@@ -26,5 +26,5 @@ dependencies {
     compile project(':AdendaSDKRelease')
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.android.support:support-v4:22.2.0'
-
+    compile project(':contact_picker')
 }
