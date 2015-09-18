@@ -1,9 +1,9 @@
 package ir.silvertech.cheathelper;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
 import android.util.Pair;
@@ -50,8 +50,8 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     @Override
     public void onResume() {
         super.onResume();
-        //sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_APPEND);
-        sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_MULTI_PROCESS);
+        //sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
         phoneNumber = sp.getString("Number", "");
         InitializeButtons();
     }
@@ -194,14 +194,14 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
 
                 //    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-                if (!phoneNumber.isEmpty()) {
+                if (!phoneNumber.isEmpty() && !number.getText().toString().isEmpty()) {
                     try {
                         sendSMS(sp.getString("Number", ""), number.getText().toString());
                     } catch (Exception ex) {
                         Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
                     }
                     number.setText("");
-                    Toast.makeText(getActivity(), phoneNumber, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Done!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
 

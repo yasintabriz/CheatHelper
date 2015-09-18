@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
@@ -92,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_APPEND);
-        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_MULTI_PROCESS);
+        //sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         et = (EditText) findViewById(R.id.editText);
         if (!sp.getString("Number", "").isEmpty()) {
             et.setText(sp.getString("Number", ""));
@@ -102,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    sp.edit().putString("Number", et.getText().toString()).apply();
+                    sp.edit().putString("Number", et.getText().toString()).commit();
+                    if (!et.getText().toString().isEmpty()) {
+                        button.setEnabled(true);
+                    }
                     hideKeyboard(v);
                 }
 
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     String phoneNumber = (String) data.getExtras().get(ContactsPickerActivity.KEY_PHONE_NUMBER);
                     //Do what you wish to do with phoneNumber e.g.
 
-                    sp.edit().putString("Number", phoneNumber).apply();
+                    sp.edit().putString("Number", phoneNumber).commit();
                     et.setText(sp.getString("Number", phoneNumber));
                     button.setEnabled(true);
 
