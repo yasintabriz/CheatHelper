@@ -2,7 +2,24 @@
 
 <resources>
     <string name="app_name">تقلب یار</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">تنظیمات</string>
+    <string name="No1">1</string>
+    <string name="No2">2</string>
+    <string name="No3">3</string>
+    <string name="No4">4</string>
+    <string name="No5">5</string>
+    <string name="No6">6</string>
+    <string name="No7">7</string>
+    <string name="No8">8</string>
+    <string name="No9">9</string>
+    <string name="No0">0</string>
+    <string name="Asterisk">*</string>
+    <string name="Ok">Ok</string>
+    <string name="SlideToUnlock">Slide to unlock</string>
+    <string name="pin_entry">Enter Pin</string>
+    <string name="NumberEntry">لطفا شماره گیرنده را وارد کنید:</string>
+    <string name="Contacts">مخاطب ها</string>
+    <string name="EnableApp">فعال کردن</string>
+    <string name="RecipientNumber">شماره گیرنده</string>
+    <string name="DisableApp">غیرفعال کردن</string>
 </resources>

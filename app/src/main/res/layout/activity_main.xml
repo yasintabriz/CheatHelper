@@ -63,7 +63,7 @@
             android:layout_marginRight="114dp"
             android:layout_weight="0.15"
             android:enabled="false"
-            android:textSize="20sp"
+            android:textSize="18sp"
             adenda:confirm_opt_in="false"
             adenda:confirm_opt_out="false"
             adenda:opt_in_text="@string/EnableApp"

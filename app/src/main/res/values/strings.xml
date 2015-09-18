@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Cheat Helper</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="No1">1</string>
     <string name="No2">2</string>
@@ -18,8 +16,8 @@
     <string name="SlideToUnlock">Slide to unlock</string>
     <string name="pin_entry">Enter Pin</string>
     <string name="NumberEntry">Please enter the recipient number:</string>
-    <string name="Contacts">Contacts...</string>
-    <string name="EnableApp">Begin cheating!(Enable)</string>
+    <string name="Contacts">Contacts</string>
+    <string name="EnableApp">Enable lock screen</string>
     <string name="RecipientNumber">Recipient number</string>
-    <string name="DisableApp">Mischief managed!(Disable)</string>
+    <string name="DisableApp">Disable lock screen</string>
 </resources>
