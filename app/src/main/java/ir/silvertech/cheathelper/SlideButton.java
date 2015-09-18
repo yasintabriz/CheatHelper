@@ -68,7 +68,6 @@ public class SlideButton extends SeekBar implements AdendaUnlockWidget {
 
     private void handleSlide() {
         aui.simpleUnlock();
-
         listener = null;
         aui = null;
     }

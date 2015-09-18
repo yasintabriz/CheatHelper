@@ -1,9 +1,9 @@
 package ir.silvertech.cheathelper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
 import android.util.Pair;
@@ -42,7 +42,6 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.lockscreen_fragment, container, false);
-        InitializeButtons();
         return view;
 
 
@@ -51,7 +50,10 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     @Override
     public void onResume() {
         super.onResume();
-
+        //sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_APPEND);
+        sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        phoneNumber = sp.getString("Number", "");
+        InitializeButtons();
     }
 
     @Override
@@ -191,12 +193,15 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             public void onClick(View v) {
 
                 //    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_PRIVATE);
-                phoneNumber = sp.getString("Number", "");
+
                 if (!phoneNumber.isEmpty()) {
-                    sendSMS(sp.getString("Number", ""), number.getText().toString());
+                    try {
+                        sendSMS(sp.getString("Number", ""), number.getText().toString());
+                    } catch (Exception ex) {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
+                    }
                     number.setText("");
-                    Toast.makeText(getActivity(), "Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), phoneNumber, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
 

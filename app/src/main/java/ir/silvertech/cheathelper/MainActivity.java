@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,14 +43,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPostOptIn() {
 
-                //            FragmentManager fm= getSupportFragmentManager();
-                //              Fragment frag=new LockscreenFragment();
-//                fm.beginTransaction().replace(R.layout.lockscreen_fragment,frag).it();
-
                 AdendaAgent.setEnableForegroundService(getApplicationContext(), false);
                 AdendaAgent.setEnableCustomContentTracking(getApplicationContext(), false);
                 AdendaAgent.setEnableAds(getApplicationContext(), false);
-
                 AdendaAgent.addCustomFragmentContent(getApplicationContext(), null, "ir.silvertech.cheathelper.LockscreenFragment", null, null, true);
                 AdendaAgent.setUnlockType(getApplicationContext(), AdendaAgent.ADENDA_UNLOCK_TYPE_NONE);
 
@@ -67,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public String getUserGender() {
-                return "m";
+                return "";
             }
 
             @Override
             public String getUserDob() {
-                return "19940113";
+                return "";
             }
 
             @Override
@@ -97,32 +93,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_PRIVATE);
-        spe = sp.edit();
+        //sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_APPEND);
+        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         et = (EditText) findViewById(R.id.editText);
         if (!sp.getString("Number", "").isEmpty()) {
             et.setText(sp.getString("Number", ""));
         }
-       /* et.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (!et.getText().toString().isEmpty()) {
-                    spe.putString("Number", s.toString()).apply();
-                    Toast.makeText(getApplicationContext(),s.toString(),Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-*/
         et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
