@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 AdendaAgent.setEnableForegroundService(getApplicationContext(), false);
                 AdendaAgent.setEnableCustomContentTracking(getApplicationContext(), false);
                 AdendaAgent.setEnableAds(getApplicationContext(), false);
+                AdendaAgent.setEnableForegroundService(getApplicationContext(), false);
                 AdendaAgent.addCustomFragmentContent(getApplicationContext(), null, "ir.silvertech.cheathelper.LockscreenFragment", null, null, true);
                 AdendaAgent.setUnlockType(getApplicationContext(), AdendaAgent.ADENDA_UNLOCK_TYPE_NONE);
 
