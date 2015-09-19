@@ -22,22 +22,29 @@
             adenda:date_time_txt_shadow="true"
             tools:layout="@layout/date_time_fragment" />
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="30dp">
 
-            <TextView
-                android:id="@+id/textView"
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:fadeScrollbars="false">
+
+            <EditText
+                android:id="@+id/PinText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:ellipsize="end"
+                android:fadeScrollbars="false"
                 android:focusable="true"
                 android:hint="@string/pin_entry"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-
-                android:textIsSelectable="true"
+                android:textColor="@android:color/white"
+                android:textIsSelectable="false"
                 android:textSize="25sp" />
         </HorizontalScrollView>
 
@@ -196,7 +203,7 @@
 
 
             <Button
-                android:id="@+id/buttonasterisk"
+                android:id="@+id/buttonclear"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -204,7 +211,7 @@
                 android:background="@drawable/roundedbutton"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:text="@string/Asterisk"
+                android:text="@string/Clear"
                 android:textSize="25sp"
                 android:typeface="serif" />
 

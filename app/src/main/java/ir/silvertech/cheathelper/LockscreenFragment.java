@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
@@ -20,7 +20,7 @@ import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
  * Created by yasin on 9/13/2015.
  */
 public class LockscreenFragment extends android.support.v4.app.Fragment implements AdendaFragmentInterface {
-    TextView number;
+    EditText number;
     View view;
     SmsManager sms;
     Button b1;
@@ -33,7 +33,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     Button b8;
     Button b9;
     Button b0;
-    Button basterisk;
+    Button bclear;
     Button bok;
     SharedPreferences sp;
     String phoneNumber;
@@ -98,9 +98,10 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
         b8 = (Button) view.findViewById(R.id.button8);
         b9 = (Button) view.findViewById(R.id.button9);
         b0 = (Button) view.findViewById(R.id.button0);
-        basterisk = (Button) view.findViewById(R.id.buttonasterisk);
+        bclear = (Button) view.findViewById(R.id.buttonclear);
         bok = (Button) view.findViewById(R.id.buttonok);
-        number = (TextView) view.findViewById(R.id.textView);
+        number = (EditText) view.findViewById(R.id.PinText);
+        number.addTextChangedListener(new NumberTextWatcher(getActivity(), number));
         //number.setMovementMethod(new ScrollingMovementMethod());
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +147,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('6'));
+//                number.setText(new StringBuilder(number.getText()).append('6'));
 
             }
         });
@@ -154,7 +155,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('7'));
+                //              number.setText(new StringBuilder(number.getText()).append('7'));
 
             }
         });
@@ -162,7 +163,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('8'));
+                //            number.setText(new StringBuilder(number.getText()).append('8'));
 
             }
         });
@@ -170,7 +171,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('9'));
+//                number.setText(new StringBuilder(number.getText()).append('9'));
 
             }
         });
@@ -178,14 +179,19 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('0'));
+//                number.setText(new StringBuilder(number.getText()).append('0'));
 
             }
         });
-        basterisk.setOnClickListener(new View.OnClickListener() {
+        bclear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                number.setText(new StringBuilder(number.getText()).append('*'));
+                int index = number.getText().length() - 1;
+                if (index != -1 && number.getText().charAt(index) != '*') {
+                    number.setText(new StringBuilder(number.getText().delete(index, index + 1)));
+                } else if (number.getText().charAt(index) == '*') {
+                    number.setText(new StringBuilder(number.getText().delete(index - 1, index + 1)));
+                }
             }
         });
         bok.setOnClickListener(new View.OnClickListener() {
