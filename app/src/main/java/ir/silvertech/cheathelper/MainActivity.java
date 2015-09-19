@@ -2,7 +2,6 @@ package ir.silvertech.cheathelper;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.codinguser.android.contactpicker.ContactsPickerActivity;
+import com.gdubina.multiprocesspreferences.MultiprocessPreferences;
 
 import sdk.adenda.lockscreen.AdendaAgent;
 import sdk.adenda.widget.AdendaButton;
@@ -20,7 +20,7 @@ import sdk.adenda.widget.AdendaButtonCallback;
 public class MainActivity extends AppCompatActivity {
     private static final int GET_PHONE_NUMBER = 3007;
     EditText et;
-    SharedPreferences sp;
+    MultiprocessPreferences.MultiprocessSharedPreferences sp;
     AdendaButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_MULTI_PROCESS);
-        //sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        //sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_MULTI_PROCESS);
+        sp = MultiprocessPreferences.getDefaultSharedPreferences(getApplicationContext());
         et = (EditText) findViewById(R.id.editText);
         if (!sp.getString("Number", "").isEmpty()) {
             et.setText(sp.getString("Number", ""));

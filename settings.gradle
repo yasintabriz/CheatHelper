@@ -1,1 +1,2 @@
 include ':app', ':AdendaSDKRelease', ':contact_picker'
+include ':multiprocessPreferencesmaster'

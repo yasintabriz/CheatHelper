@@ -1,8 +1,6 @@
 package ir.silvertech.cheathelper;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
@@ -14,8 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
+import com.gdubina.multiprocesspreferences.MultiprocessPreferences;
 
+import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
 /**
  * Created by yasin on 9/13/2015.
  */
@@ -35,7 +34,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     Button b0;
     Button bclear;
     Button bok;
-    SharedPreferences sp;
+    MultiprocessPreferences.MultiprocessSharedPreferences sp;
     String phoneNumber;
     @Nullable
     @Override
@@ -50,8 +49,8 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     @Override
     public void onResume() {
         super.onResume();
-        sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_MULTI_PROCESS);
-        //sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        //sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_MULTI_PROCESS);
+        sp = MultiprocessPreferences.getDefaultSharedPreferences(getActivity());
         phoneNumber = sp.getString("Number", "");
         InitializeButtons();
     }
@@ -202,12 +201,13 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
 
                 if (!phoneNumber.isEmpty() && !number.getText().toString().isEmpty()) {
                     try {
-                        sendSMS(sp.getString("Number", ""), number.getText().toString());
+                        //sendSMS(sp.getString("Number", ""), number.getText().toString());
                     } catch (Exception ex) {
                         Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
                     }
                     number.setText("");
-                    Toast.makeText(getActivity(), "Done!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Done!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), sp.getString("Number", ""), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
 
