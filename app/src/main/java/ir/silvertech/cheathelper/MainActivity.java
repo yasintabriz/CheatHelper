@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int GET_PHONE_NUMBER = 3007;
     EditText et;
     SharedPreferences sp;
-    SharedPreferences.Editor spe;
     AdendaButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,10 +10,6 @@ import sdk.adenda.widget.AdendaUnlockInterface;
 import sdk.adenda.widget.AdendaUnlockWidget;
 
 
-interface SlideButtonListener {
-
-}
-
 /**
  * Created by yasin on 9/14/2015.
  */
@@ -23,7 +19,6 @@ public class SlideButton extends SeekBar implements AdendaUnlockWidget {
 
     AdendaUnlockInterface aui;
     private Drawable thumb;
-    private SlideButtonListener listener;
 
     public SlideButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -55,10 +50,6 @@ public class SlideButton extends SeekBar implements AdendaUnlockWidget {
         return true;
     }
 
-    public void setSlideButtonListener(SlideButtonListener listener2) {
-        listener = listener2;
-    }
-
 
     @Override
     public void setAdendaUnlockInterface(AdendaUnlockInterface adendaUnlockInterface) {
@@ -68,7 +59,6 @@ public class SlideButton extends SeekBar implements AdendaUnlockWidget {
 
     private void handleSlide() {
         aui.simpleUnlock();
-        listener = null;
         aui = null;
     }
 
