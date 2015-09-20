@@ -1,5 +1,6 @@
 package ir.silvertech.cheathelper;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,38 +22,21 @@ import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
 public class LockscreenFragment extends android.support.v4.app.Fragment implements AdendaFragmentInterface {
     EditText number;
     View view;
-    SmsManager sms;
-    Button b1;
-    Button b2;
-    Button b3;
-    Button b4;
-    Button b5;
-    Button b6;
-    Button b7;
-    Button b8;
-    Button b9;
-    Button b0;
-    Button bclear;
-    Button bok;
-    MultiprocessPreferences.MultiprocessSharedPreferences sp;
     String phoneNumber;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.lockscreen_fragment, container, false);
+        InitializeButtons();
         return view;
-
-
     }
-
     @Override
     public void onResume() {
         super.onResume();
+        MultiprocessPreferences.MultiprocessSharedPreferences sp;
         //sp = getActivity().getSharedPreferences("ir.silvertech.cheathelper_preferences", Context.MODE_MULTI_PROCESS);
         sp = MultiprocessPreferences.getDefaultSharedPreferences(getActivity());
         phoneNumber = sp.getString("Number", "");
-        InitializeButtons();
     }
 
     @Override
@@ -87,26 +71,28 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
 
 
     public void InitializeButtons() {
-        b1 = (Button) view.findViewById(R.id.button1);
-        b2 = (Button) view.findViewById(R.id.button2);
-        b3 = (Button) view.findViewById(R.id.button3);
-        b4 = (Button) view.findViewById(R.id.button4);
-        b5 = (Button) view.findViewById(R.id.button5);
-        b6 = (Button) view.findViewById(R.id.button6);
-        b7 = (Button) view.findViewById(R.id.button7);
-        b8 = (Button) view.findViewById(R.id.button8);
-        b9 = (Button) view.findViewById(R.id.button9);
-        b0 = (Button) view.findViewById(R.id.button0);
-        bclear = (Button) view.findViewById(R.id.buttonclear);
-        bok = (Button) view.findViewById(R.id.buttonok);
+        Button b1 = (Button) view.findViewById(R.id.button1);
+        Button b2 = (Button) view.findViewById(R.id.button2);
+        Button b3 = (Button) view.findViewById(R.id.button3);
+        Button b4 = (Button) view.findViewById(R.id.button4);
+        Button b5 = (Button) view.findViewById(R.id.button5);
+        Button b6 = (Button) view.findViewById(R.id.button6);
+        Button b7 = (Button) view.findViewById(R.id.button7);
+        Button b8 = (Button) view.findViewById(R.id.button8);
+        Button b9 = (Button) view.findViewById(R.id.button9);
+        Button b0 = (Button) view.findViewById(R.id.button0);
+        Button bclear = (Button) view.findViewById(R.id.buttonclear);
+        Button bok = (Button) view.findViewById(R.id.buttonok);
         number = (EditText) view.findViewById(R.id.PinText);
+        //number.setScroller(new Scroller(getActivity()));
+        // number.setMovementMethod(new ScrollingMovementMethod());
         number.addTextChangedListener(new NumberTextWatcher(getActivity(), number));
         //number.setMovementMethod(new ScrollingMovementMethod());
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('1'));
+                number.append("1");
 
             }
         });
@@ -114,72 +100,63 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('2'));
-
+                number.append("2");
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('3'));
-
+                number.append("3");
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('4'));
-
+                number.append("4");
             }
         });
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                number.setText(new StringBuilder(number.getText()).append('5'));
-
+                number.append("5");
             }
         });
         b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                number.setText(new StringBuilder(number.getText()).append('6'));
-
+                number.append("6");
             }
         });
         b7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //              number.setText(new StringBuilder(number.getText()).append('7'));
-
+                number.append("7");
             }
         });
         b8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //            number.setText(new StringBuilder(number.getText()).append('8'));
-
+                number.append("8");
             }
         });
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                number.setText(new StringBuilder(number.getText()).append('9'));
-
+                number.append("9");
             }
         });
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                number.setText(new StringBuilder(number.getText()).append('0'));
-
+                number.append("0");
             }
         });
         bclear.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +165,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
                 int index = number.getText().length() - 1;
                 if (index != -1 && number.getText().charAt(index) != '*') {
                     number.setText(new StringBuilder(number.getText().delete(index, index + 1)));
-                } else if (number.getText().charAt(index) == '*') {
+                } else if (index != -1 && number.getText().charAt(index) == '*') {
                     number.setText(new StringBuilder(number.getText().delete(index - 1, index + 1)));
                 }
             }
@@ -201,19 +178,16 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
 
                 if (!phoneNumber.isEmpty() && !number.getText().toString().isEmpty()) {
                     try {
-                        //sendSMS(sp.getString("Number", ""), number.getText().toString());
+                        sendSMS(phoneNumber, number.getText().toString());
                     } catch (Exception ex) {
                         Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
                     }
                     number.setText("");
-                    //Toast.makeText(getActivity(), "Done!", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), sp.getString("Number", ""), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Done!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
 
                 }
-                sp = null;
-                phoneNumber = null;
             }
         });
 
@@ -221,7 +195,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     }
 
     private void sendSMS(String InputNumber, String message) {
-        sms = SmsManager.getDefault();
+        SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(InputNumber, null, message, null, null);
         sms = null;
         number.setText("");

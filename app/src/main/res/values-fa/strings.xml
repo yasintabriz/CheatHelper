@@ -3,23 +3,16 @@
 <resources>
     <string name="app_name">تقلب یار</string>
     <string name="action_settings">تنظیمات</string>
-    <string name="No1">1</string>
-    <string name="No2">2</string>
-    <string name="No3">3</string>
-    <string name="No4">4</string>
-    <string name="No5">5</string>
-    <string name="No6">6</string>
-    <string name="No7">7</string>
-    <string name="No8">8</string>
-    <string name="No9">9</string>
-    <string name="No0">0</string>
-    <string name="Clear">C</string>
-    <string name="Ok">Ok</string>
-    <string name="SlideToUnlock">Slide to unlock</string>
-    <string name="pin_entry">Enter Pin</string>
     <string name="NumberEntry">لطفا شماره گیرنده را وارد کنید:</string>
     <string name="Contacts">مخاطب ها</string>
     <string name="EnableApp">فعال کردن</string>
     <string name="RecipientNumber">شماره گیرنده</string>
+    <string name="agree">می پذیرم</string>
+    <string name="aboutUsText">اتشکر از ن.امامی و خواهرم</string>
+    <string name="disagree">نمی پذیرم</string>
     <string name="DisableApp">غیرفعال کردن</string>
+    <string name="eula">از آنجاییکه برای برنامه بصورت رایگان پروانه صادر شده است هیچ تعهدی برای برنامه - تا آنجا که قوانین جاری موجودند - وجود ندارد. برنامه "همان است که هست" بدون هیچ گونه تعهدی در هر زمینه ای، چه با برداشت شفاهی و یا ضمنی، چه تجاری و یا سازگاری، مگر وقتی که خلاف این مساله توسط صاحبان اصلی و یا توزیع کنندگان ثالث مکتوب شده باشد. تمام مخاطرات مرتبط با کیفیت و کارآیی برنامه در ارتباط مستقیم با شما ست.
+تحت هیچ شرایطی، مگر وقتی که قانونی مقرر کرده باشد و یا بر اساس مجوز مکتوب صاحب امتیاز یا هر توزیع کننده ثالث که برنامه را تغییر داده و یا توزیع می کند، آنها هیچ مسوولیتی در قبال هر خسارتی از جمله خسارات کلی، خاص، واقعه و یا پی آمدهای استفاده و یا عدم امکان استفاده از برنامه (از جمله از دست رفتن اطلاعات، تولید اطلاعات غلط و یا ضررهایی برای شما و یا اشخاص ثالث و یا عدم کارآیی برنامه در کار کردن با دیگر برنامه ها) را ندارند حتی اگر آنها به احتمال وقوع این خسارات اشاره کرده باشند.
+</string>
+    <string name="aboutUsButton">درباره ی ما</string>
 </resources>

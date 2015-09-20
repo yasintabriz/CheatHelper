@@ -1,8 +1,10 @@
 package ir.silvertech.cheathelper;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
@@ -26,7 +28,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new EULA(this).show();
+        et = (EditText) findViewById(R.id.editText);
+        et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    sp.edit().putString("Number", et.getText().toString()).commit();
+                    if (!et.getText().toString().isEmpty() || button.isOptedIn()) {
+                        button.setEnabled(true);
+                    } else {
+                        button.setEnabled(false);
+
+                    }
+                    hideKeyboard(v);
+                }
+            }
+        });
         AdendaAgent.setAdendaConfirmationText(getApplicationContext(), null);
+        final Button aboutButton = (Button) findViewById(R.id.aboutButton);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAbout();
+            }
+        });
         button = (AdendaButton) findViewById(R.id.lock_in_button);
         button.setAdendaCallback(new AdendaButtonCallback() {
             @Override
@@ -52,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPostOptOut() {
                 // AdendaAgent.setEnableForegroundService(getApplicationContext(),false);
+                if (sp.getString("Number", "").isEmpty()) {
+                    button.setEnabled(false);
+                }
+                AdendaAgent.removeAllCustomContent(getApplicationContext());
+                AdendaAgent.flushContentCache(getApplicationContext());
             }
 
             @Override
@@ -88,28 +119,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    protected void showAbout() {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("About");
+        alertDialog.setIcon(R.mipmap.ic_launcher);
+        alertDialog.setMessage(this.getString(R.string.aboutUsText));
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         //sp = this.getSharedPreferences("ir.silvertech.cheathelper_preferences", MODE_MULTI_PROCESS);
         sp = MultiprocessPreferences.getDefaultSharedPreferences(getApplicationContext());
-        et = (EditText) findViewById(R.id.editText);
+
         if (!sp.getString("Number", "").isEmpty()) {
             et.setText(sp.getString("Number", ""));
         }
-        et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    sp.edit().putString("Number", et.getText().toString()).commit();
-                    if (!et.getText().toString().isEmpty()) {
-                        button.setEnabled(true);
-                    }
-                    hideKeyboard(v);
-                }
 
-            }
-        });
         if (button.isOptedIn()) {
             button.setEnabled(true);
         } else
@@ -149,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     String phoneNumber = (String) data.getExtras().get(ContactsPickerActivity.KEY_PHONE_NUMBER);
                     //Do what you wish to do with phoneNumber e.g.
-
+                    phoneNumber = phoneNumber.replaceAll("[^0-9.+]", "");
                     sp.edit().putString("Number", phoneNumber).commit();
                     et.setText(sp.getString("Number", phoneNumber));
                     button.setEnabled(true);

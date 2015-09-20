@@ -15,6 +15,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_gravity="right"
         android:layout_weight="0.2"
         android:text="@string/NumberEntry"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -28,6 +29,15 @@
         android:layout_weight="1.25"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/ContactButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Contacts"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
+
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
@@ -39,50 +49,43 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:hint="@string/RecipientNumber"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/ContactButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/Contacts"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/black" />
+            android:inputType="number"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="1.2"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutUsButton"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textDirection="rtl" />
 
         <sdk.adenda.widget.AdendaButton xmlns:adenda="http://schemas.android.com/apk/res-auto"
             android:id="@+id/lock_in_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="right"
             android:layout_weight="1"
             android:enabled="false"
+            android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/black"
+            android:textDirection="rtl"
             adenda:confirm_opt_in="false"
             adenda:confirm_opt_out="false"
             adenda:opt_in_text="@string/EnableApp"
             adenda:opt_out_text="@string/DisableApp" />
-
-        <Button
-            android:id="@+id/aboutButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/aboutUsButton"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </LinearLayout>

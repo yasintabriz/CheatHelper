@@ -1,23 +1,28 @@
 <resources>
     <string name="app_name">Cheat Helper</string>
     <string name="action_settings">Settings</string>
-    <string name="No1">1</string>
-    <string name="No2">2</string>
-    <string name="No3">3</string>
-    <string name="No4">4</string>
-    <string name="No5">5</string>
-    <string name="No6">6</string>
-    <string name="No7">7</string>
-    <string name="No8">8</string>
-    <string name="No9">9</string>
-    <string name="No0">0</string>
-    <string name="Clear">C</string>
-    <string name="Ok">OK</string>
-    <string name="SlideToUnlock">Slide to unlock</string>
-    <string name="pin_entry">Enter Pin</string>
+    <string name="No1" translatable="false">1</string>
+    <string name="No2" translatable="false">2</string>
+    <string name="No3" translatable="false">3</string>
+    <string name="No4" translatable="false">4</string>
+    <string name="No5" translatable="false">5</string>
+    <string name="No6" translatable="false">6</string>
+    <string name="No7" translatable="false">7</string>
+    <string name="No8" translatable="false">8</string>
+    <string name="No9" translatable="false">9</string>
+    <string name="No0" translatable="false">0</string>
+    <string name="Clear" translatable="false">C</string>
+    <string name="Ok" translatable="false">OK</string>
+    <string name="SlideToUnlock" translatable="false">Slide to unlock</string>
+    <string name="pin_entry" translatable="false">Enter Pin</string>
     <string name="NumberEntry">Please enter the recipient number:</string>
     <string name="Contacts">Contacts</string>
     <string name="EnableApp">Enable lock screen</string>
+    <string name="aboutUsText">Many thanks to N.Emami and my sister.</string>
     <string name="RecipientNumber">Recipient number</string>
     <string name="DisableApp">Disable lock screen</string>
+    <string name="agree">I agree</string>
+    <string name="disagree">I do not agree</string>
+    <string name="eula">The Software is provided to you on an "AS IS" basis without warranty of any kind including, without limitation, any warranty or condition of merchantability, fitness for a particular purpose and non-infringement. By using this app you agree that no one, but yourself is responsible for your actions. </string>
+    <string name="aboutUsButton">About</string>
 </resources>

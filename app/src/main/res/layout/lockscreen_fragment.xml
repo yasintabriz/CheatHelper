@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tron_lock_screen"
+    android:background="@drawable/background720p"
     android:orientation="vertical">
 
     <LinearLayout
@@ -44,6 +44,7 @@
                 android:scrollHorizontally="true"
                 android:singleLine="true"
                 android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 android:textIsSelectable="false"
                 android:textSize="25sp" />
         </HorizontalScrollView>

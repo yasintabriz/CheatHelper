@@ -35,6 +35,7 @@ public class NumberTextWatcher implements TextWatcher {
         }
         et.setText(sb.toString());
         et.addTextChangedListener(this);
+
     }
 
     @Override
