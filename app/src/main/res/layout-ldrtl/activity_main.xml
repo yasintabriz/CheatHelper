@@ -48,6 +48,7 @@
             android:ems="10"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:gravity="right"
             android:hint="@string/RecipientNumber"
             android:inputType="number"
             android:textAppearance="?android:attr/textAppearanceMedium" />
