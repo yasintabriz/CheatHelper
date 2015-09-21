@@ -20,9 +20,9 @@ import sdk.adenda.lockscreen.fragments.AdendaFragmentInterface;
  * Created by yasin on 9/13/2015.
  */
 public class LockscreenFragment extends android.support.v4.app.Fragment implements AdendaFragmentInterface {
-    EditText number;
-    View view;
-    String phoneNumber;
+    private EditText number;
+    private View view;
+    private String phoneNumber;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     }
 
 
-    public void InitializeButtons() {
+    private void InitializeButtons() {
         Button b1 = (Button) view.findViewById(R.id.button1);
         Button b2 = (Button) view.findViewById(R.id.button2);
         Button b3 = (Button) view.findViewById(R.id.button3);
@@ -197,7 +197,6 @@ public class LockscreenFragment extends android.support.v4.app.Fragment implemen
     private void sendSMS(String InputNumber, String message) {
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(InputNumber, null, message, null, null);
-        sms = null;
         number.setText("");
 
     }

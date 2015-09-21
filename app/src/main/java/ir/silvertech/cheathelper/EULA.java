@@ -12,10 +12,9 @@ import com.gdubina.multiprocesspreferences.MultiprocessPreferences;
 /**
  * Created by yasin on 9/20/2015.
  */
-public class EULA {
+class EULA {
 
-    private String EULA_PREFIX = "eula_";
-    private Activity mActivity;
+    private final Activity mActivity;
 
     public EULA(Activity context) {
         mActivity = context;
@@ -35,6 +34,7 @@ public class EULA {
         PackageInfo versionInfo = getPackageInfo();
 
         // the eulaKey changes every time you increment the version number in the AndroidManifest.xml
+        String EULA_PREFIX = "eula_";
         final String eulaKey = EULA_PREFIX + versionInfo.versionCode;
         final MultiprocessPreferences.MultiprocessSharedPreferences prefs = MultiprocessPreferences.getDefaultSharedPreferences(mActivity);
         boolean hasBeenShown = prefs.getBoolean(eulaKey, false);

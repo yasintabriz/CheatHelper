@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:enabled="false"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black"
+            android:theme="@style/Base.V21.Theme.AppCompat.Light"
             adenda:confirm_opt_in="false"
             adenda:confirm_opt_out="false"
             adenda:opt_in_text="@string/EnableApp"

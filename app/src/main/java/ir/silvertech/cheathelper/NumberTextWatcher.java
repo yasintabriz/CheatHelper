@@ -5,21 +5,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import java.text.DecimalFormat;
-
 public class NumberTextWatcher implements TextWatcher {
 
     @SuppressWarnings("unused")
     private static final String TAG = "NumberTextWatcher";
-    final Context context;
-    final private DecimalFormat dfnd;
     final private EditText et;
-    private boolean hasFractionalPart;
 
     public NumberTextWatcher(Context context, EditText et) {
-        dfnd = new DecimalFormat("#,#####");
         this.et = et;
-        this.context = context;
     }
 
     @Override

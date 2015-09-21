@@ -21,9 +21,9 @@ import sdk.adenda.widget.AdendaButtonCallback;
 
 public class MainActivity extends AppCompatActivity {
     private static final int GET_PHONE_NUMBER = 3007;
-    EditText et;
-    MultiprocessPreferences.MultiprocessSharedPreferences sp;
-    AdendaButton button;
+    private EditText et;
+    private MultiprocessPreferences.MultiprocessSharedPreferences sp;
+    private AdendaButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void showAbout() {
+    private void showAbout() {
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
         alertDialog.setTitle("About");
         alertDialog.setIcon(R.mipmap.ic_launcher);
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void hideKeyboard(View view) {
+    private void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public void getContact() {
+    private void getContact() {
         startActivityForResult(new Intent(this, ContactsPickerActivity.class), GET_PHONE_NUMBER);
     }
 
@@ -182,7 +182,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     String phoneNumber = (String) data.getExtras().get(ContactsPickerActivity.KEY_PHONE_NUMBER);
                     //Do what you wish to do with phoneNumber e.g.
-                    phoneNumber = phoneNumber.replaceAll("[^0-9.+]", "");
+                    if (phoneNumber != null) {
+                        phoneNumber = phoneNumber.replaceAll("[^0-9.+]", "");
+                    }
                     sp.edit().putString("Number", phoneNumber).commit();
                     et.setText(sp.getString("Number", phoneNumber));
                     button.setEnabled(true);

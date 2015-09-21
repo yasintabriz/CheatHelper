@@ -17,7 +17,7 @@ import sdk.adenda.widget.AdendaUnlockWidget;
 public class SlideButton extends SeekBar implements AdendaUnlockWidget {
 
 
-    AdendaUnlockInterface aui;
+    private AdendaUnlockInterface aui;
     private Drawable thumb;
 
     public SlideButton(Context context, AttributeSet attrs) {
